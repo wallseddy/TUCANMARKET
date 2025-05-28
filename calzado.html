@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ropa-nuestra tienda</title>
+  <title>Calzado-nuestra tienda</title>
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -38,6 +38,7 @@
       <span class="carrito-icono">🛒</span>
       <span class="contador" id="contador-carrito">0</span>
     </div>
+    </div>
   </div>
 </header>
 
@@ -46,7 +47,7 @@
     
 
   <main>
-    <h2>Ropa</h2>
+    <h2>Calzado</h2>
 
   <!-- BANNER DE FOTOS INTERCAMBIABLES CON FLECHAS -->
   <div class="photo-banner-container" style="max-width: 820px; margin: 0 auto 30px auto; position: relative;">
@@ -57,10 +58,10 @@
   <script>
     // Banner de fotos intercambiables
     const photoBannerImages = [
-      "https://cdn-3.expansion.mx/dims4/default/6f498eb/2147483647/resize/1280x/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F3a%2F45%2F54e215a343db8dc1676af8347592%2Fofertas-ropa.jpg",
-      "https://martimx.vtexassets.com/assets/vtex.file-manager-graphql/images/77258c3c-0ab8-40df-b1ea-b1e7483db124___2bb756a46da473c8c3776b62ccc5dd2c.jpg",
-      "https://www.informador.mx/__export/1672778123870/sites/elinformador/img/2023/01/03/istock-1176723601_1.jpg_788543494.jpg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlT4l-F20aGg4f8AwbVRMaf5KO4Bm2kL5VFA&s",
+      "https://http2.mlstatic.com/storage/splinter-admin/o:f_webp,q_auto:low/1748044460552-3ebb9880-3831-11f0-89f0-934923ce79ab.jpg",
+      "https://calzzapatodigital.s3.us-west-1.amazonaws.com/landings/calzzapato/d07b9f40-6284-4ed3-afd7-e2685b507a2c.webp",
+      "https://www.laces.mx/cdn/shop/files/MB_MOBILE_10_ADI.jpg?v=1748144913&width=320",
+      "https://cdn2.coppel.com/images/emarketing/1stlevel/2025/mayo/zapatos/bloques/Bloque1-Deskop.jpg",
     ];
     let photoBannerIndex = 0;
     const photoBannerImg = document.getElementById('photo-banner-img');
@@ -80,87 +81,128 @@
     </div>
   </div>
 
-  <!-- SECCIÓN DE ROPA DEPORTIVA -->
-<h2 style="margin-top:40px;">Ropa Deportiva</h2>
-<div class="ropa-deportiva-grid" style="
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 28px;
-  margin-bottom: 40px;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-">
-  <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
-    <img src="https://ss859.suburbia.com.mx/xl/5008866645.jpg" alt="Playera Deportiva Hombre" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
-    <h3>Playera Deportiva Hombre</h3>
-    <p>Transpirable, ligera y cómoda para entrenar</p>
-    <p class="price">$399</p>
-    <button onclick="agregarAlCarrito('Playera Deportiva Hombre', 399)">Agregar al carrito</button>
+  <!-- CATÁLOGO DE TENIS DEPORTIVOS PARA HOMBRE -->
+  <h2 style="margin-top:40px;">Tenis Deportivos para Hombre</h2>
+  <div class="tenis-hombre-grid" style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    margin-bottom: 40px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  ">
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://s3-us-west-1.amazonaws.com/calzzapato/zoom/09FRBG-2.jpg" alt="Tenis Nike Revolution 6" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Tenis Nike Revolution 6</h3>
+      <p>Comodidad y ligereza para correr o entrenar, color negro</p>
+      <p class="price">$1,299</p>
+      <button onclick="agregarAlCarrito('Tenis Nike Revolution 6', 1299)">Agregar al carrito</button>
+    </div>
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://m.media-amazon.com/images/I/41SldGeQLKL._AC_SY900_.jpg" alt="Tenis Adidas Run Falcon 3.0" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Tenis Adidas Run Falcon 3.0</h3>
+      <p>Soporte y amortiguación, ideales para uso diario, color gris</p>
+      <p class="price">$1,099</p>
+      <button onclick="agregarAlCarrito('Tenis Adidas Run Falcon 3.0', 1099)">Agregar al carrito</button>
+    </div>
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNcOJvzzX4TelWdQJWRx5M1osOllq2y6jBwg&s" alt="Tenis Puma Flyer Runner" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Tenis Puma Flyer Runner</h3>
+      <p>Diseño moderno, suela antideslizante, color azul</p>
+      <p class="price">$999</p>
+      <button onclick="agregarAlCarrito('Tenis Puma Flyer Runner', 999)">Agregar al carrito</button>
+    </div>
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://ss872.suburbia.com.mx/xl/5010477701.jpg" alt="Tenis Reebok Lite Plus 3" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Tenis Reebok Lite Plus 3</h3>
+      <p>Transpirables, ligeros y resistentes, color blanco</p>
+      <p class="price">$1,199</p>
+      <button onclick="agregarAlCarrito('Tenis Reebok Lite Plus 3', 1199)">Agregar al carrito</button>
+    </div>
   </div>
-  <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
-    <img src="https://chapurmx.vtexassets.com/arquivos/ids/317386-800-auto?v=638421432672800000&width=800&height=auto&aspect=true" alt="Short Deportivo Mujer" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
-    <h3>Short Deportivo Mujer</h3>
-    <p>Ideal para correr o hacer ejercicio, color negro</p>
-    <p class="price">$349</p>
-    <button onclick="agregarAlCarrito('Short Deportivo Mujer', 349)">Agregar al carrito</button>
-  </div>
-  <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
-    <img src="https://assets.adidas.com/images/w_383,h_383,f_auto,q_auto,fl_lossy,c_fill,g_auto/5be02bcded1946ada051c82a0be45e42_9366/sudadera-con-gorro-adidas-basketball-spacer-unisex.jpg" alt="Sudadera Deportiva Unisex" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
-    <h3>Sudadera Deportiva Unisex</h3>
-    <p>Perfecta para entrenar en clima frío</p>
-    <p class="price">$599</p>
-    <button onclick="agregarAlCarrito('Sudadera Deportiva Unisex', 599)">Agregar al carrito</button>
-  </div>
-  <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
-    <img src="https://ss205.liverpool.com.mx/xl/1128415429.jpg" alt="Pants Deportivo Hombre" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
-    <h3>Pants Deportivo Hombre</h3>
-    <p>Cómodos y resistentes, color gris</p>
-    <p class="price">$499</p>
-    <button onclick="agregarAlCarrito('Pants Deportivo Hombre', 499)">Agregar al carrito</button>
-  </div>
-</div>
 
-  <!-- SECCIÓN DE ROPA DEL INSTITUTO TECNOLÓGICO DE CANCÚN -->
-<h2 style="margin-top:40px;">Ropa del Instituto Tecnológico de Cancún</h2>
-<div class="ropa-itc-grid" style="
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 28px;
-  margin-bottom: 40px;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-">
-  <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCojfhkd0M4ZZGi_nTFQgRmlMztJnfcuc7Yg&s" alt="Playera Oficial IT Cancún" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
-    <h3>Playera Oficial IT Cancún</h3>
-    <p>Playera blanca con logo institucional</p>
-    <p class="price">$250</p>
-    <button onclick="agregarAlCarrito('Playera Oficial IT Cancún', 250)">Agregar al carrito</button>
+  <!-- CATÁLOGO DE TENIS DEPORTIVOS PARA MUJER -->
+  <h2 style="margin-top:40px;">Tenis Deportivos para Mujer</h2>
+  <div class="tenis-mujer-grid" style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    margin-bottom: 40px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  ">
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://resources.claroshop.com/medios-plazavip/t1/1724684603dow1jpg" alt="Tenis Nike Downshifter 12 Mujer" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Tenis Nike Downshifter 12</h3>
+      <p>Ligereza y soporte para correr, color rosa</p>
+      <p class="price">$1,199</p>
+      <button onclick="agregarAlCarrito('Tenis Nike Downshifter 12 Mujer', 1199)">Agregar al carrito</button>
+    </div>
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://surtidoradepartamental.vteximg.com.br/arquivos/ids/630501/180000116630_1.jpg?v=638603436725330000" alt="Tenis Adidas Galaxy 6 Mujer" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Tenis Adidas Galaxy 6</h3>
+      <p>Amortiguación y comodidad, color lila</p>
+      <p class="price">$1,099</p>
+      <button onclick="agregarAlCarrito('Tenis Adidas Galaxy 6 Mujer', 1099)">Agregar al carrito</button>
+    </div>
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://s3-us-west-1.amazonaws.com/calzzapato/zoom/09HE4J-2.jpg" alt="Tenis Puma Flyer Runner Mujer" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Tenis Puma Flyer Runner</h3>
+      <p>Diseño moderno, suela antideslizante, color blanco</p>
+      <p class="price">$999</p>
+      <button onclick="agregarAlCarrito('Tenis Puma Flyer Runner Mujer', 999)">Agregar al carrito</button>
+    </div>
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://s3-us-west-1.amazonaws.com/calzzapato/zoom/09GKQ7-1.jpg" alt="Tenis Reebok Lite Plus 3 Mujer" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Tenis Reebok Lite Plus 3</h3>
+      <p>Transpirables y ligeros, color negro</p>
+      <p class="price">$1,099</p>
+      <button onclick="agregarAlCarrito('Tenis Reebok Lite Plus 3 Mujer', 1099)">Agregar al carrito</button>
+    </div>
   </div>
-  <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
-    <img src="https://tecmonterreymx.vtexassets.com/arquivos/ids/170377/Sudadera-Essential-TEC-zipper-unisex-azul-1.jpg?v=637780754923670000" alt="Sudadera IT Cancún" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
-    <h3>Sudadera IT Cancún</h3>
-    <p>Sudadera azul marino con escudo bordado</p>
-    <p class="price">$480</p>
-    <button onclick="agregarAlCarrito('Sudadera IT Cancún', 480)">Agregar al carrito</button>
+
+  <!-- CATÁLOGO DE SANDALIAS -->
+  <h2 style="margin-top:40px;">Sandalias</h2>
+  <div class="sandalias-grid" style="
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 28px;
+    margin-bottom: 40px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  ">
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/77874acd-bf25-4037-bf21-9b442d1b28eb/NIKE+VICTORI+ONE+SLIDE.png" alt="Sandalia Nike Hombre" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Sandalia Nike Hombre</h3>
+      <p>Sandalia ligera y cómoda, color negro</p>
+      <p class="price">$499</p>
+      <button onclick="agregarAlCarrito('Sandalia Nike Hombre', 499)">Agregar al carrito</button>
+    </div>
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/cfc42c07534e43f9aa10d6d9bae5c436_9366/Sandalias_SLYN_Rosa_JI4326_01_standard.jpg" alt="Sandalia Adidas Mujer" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Sandalia Adidas Mujer</h3>
+      <p>Diseño moderno, color rosa</p>
+      <p class="price">$549</p>
+      <button onclick="agregarAlCarrito('Sandalia Adidas Mujer', 549)">Agregar al carrito</button>
+    </div>
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://m.media-amazon.com/images/I/31AQoqEeIIL._AC_SY900_DpWeblab_.jpg" alt="Sandalia Puma Unisex" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Sandalia Puma Unisex</h3>
+      <p>Ideal para playa o alberca, color azul</p>
+      <p class="price">$399</p>
+      <button onclick="agregarAlCarrito('Sandalia Puma Unisex', 399)">Agregar al carrito</button>
+    </div>
+    <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_938284-MLM75419562592_042024-O-sandalias-chanclas-huaraches-reebok-hombre-caballero-playa.webp" alt="Sandalia Reebok Hombre" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
+      <h3>Sandalia Reebok Hombre</h3>
+      <p>Resistentes y ligeras, color gris</p>
+      <p class="price">$429</p>
+      <button onclick="agregarAlCarrito('Sandalia Reebok Hombre', 429)">Agregar al carrito</button>
+    </div>
   </div>
-  <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
-    <img src="https://tecmonterreymx.vtexassets.com/arquivos/ids/180654/image-8b4a5216b8b545caab7967d6a32ab5c3.jpg?v=638198516853400000" alt="Pants Deportivo IT Cancún" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
-    <h3>Pants Deportivo IT Cancún</h3>
-    <p>Pants gris con detalles verdes y logo</p>
-    <p class="price">$350</p>
-    <button onclick="agregarAlCarrito('Pants Deportivo IT Cancún', 350)">Agregar al carrito</button>
-  </div>
-  <div class="producto" style="background: #fff; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); padding: 18px; display: flex; flex-direction: column; align-items: center;">
-    <img src="https://tecstore.mx/cdn/shop/files/WS-MVPTT213WBV-SB-HR-F.jpg?v=1747888969" alt="Gorra IT Cancún" style="width: 100%; max-width: 150px; height: 170px; object-fit: contain;">
-    <h3>Gorra IT Cancún</h3>
-    <p>Gorra ajustable con logo del instituto</p>
-    <p class="price">$180</p>
-    <button onclick="agregarAlCarrito('Gorra IT Cancún', 180)">Agregar al carrito</button>
-  </div>
-</div>
 
   <script>
     // Variables globales
