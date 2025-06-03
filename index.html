@@ -12,7 +12,7 @@
     body.modo-oscuro .banner-item,
     body.modo-oscuro .producto,
     body.modo-oscuro .producto-banner-item,
-    body.modo-oscuro .carrera-item { background-color: #222 !important; color: #f1f1f1 !important; border-color: #444 !important; }
+    body.modo-oscuro .carrera-item { background-color: lch(28.19% 78.17 298.94) !important; color: #f1f1f1 !important; border-color: #444 !important; }
     body.modo-oscuro .banner,
     body.modo-oscuro main,
     body.modo-oscuro section { background-color: #181818 !important; color: #f1f1f1 !important; }
@@ -24,11 +24,30 @@
     body.modo-oscuro .barra-busqueda input { background-color: #222 !important; color: #fff !important; border: 1px solid #444 !important; }
 
     .menu-superior {
-      position: fixed; top: 0; width: 100%; background-color: #333; color: white; z-index: 1000;
+      position: fixed; top: 0; width: 100%; background-color: #070ea1be; color: white; z-index: 1000;
       display: flex; justify-content: space-between; align-items: center; padding: 15px 30px;
     }
-    .menu-superior .logo img { height: 80px; }
-    .menu-superior nav ul { list-style: none; display: flex; gap: 35px; }
+    .menu-superior .logo {
+      margin-left: 0; /* Asegura que esté pegado a la izquierda */
+      display: flex;
+      align-items: center;
+    }
+    .menu-superior .logo img {
+      height: 80px;
+      border-radius: 18px; /* Bordes redondeados */
+      margin-left: -10px; /* Mueve el logo más a la izquierda */
+    }
+    .menu-superior nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+    }
+    .menu-superior nav ul li {
+      /* Añadido para poder mover solo el botón de testimonios */
+    }
+    .menu-superior nav ul li.testimonios-link {
+      margin-left: -30px; /* Mueve el botón de testimonios a la izquierda */
+    }
     .menu-superior nav ul li a {
       color: white; text-decoration: none; font-weight: bold; font-size: 20px; transition: color 0.2s;
     }
@@ -174,28 +193,37 @@
 </head>
 <body>
 
+<script>
+    // Redirigir a login si no está logueado
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "login.html";
+    }
+</script>
+
   <!-- MENU SUPERIOR -->
-  <div class="menu-superior">
-    <div class="logo">
-      <img src="https://media.licdn.com/dms/image/v2/D4E0BAQGzyLtzNxAmVQ/company-logo_200_200/company-logo_200_200/0/1706325237530/instituto_tecnologico_de_cancn_logo?e=2147483647&v=beta&t=lTklKP8Ih95EBR21RQvI1lgtFT0OKJJIfJZuHsY92aI" alt="Logo Tienda Virtual">
+  <div class="menu-superior" style="background: #172a7c; color: #fff; padding: 0;">
+    <div class="logo" style="display: flex; align-items: center; margin-left: 32px;">
+      <img src="https://media.licdn.com/dms/image/v2/D4E0BAQGzyLtzNxAmVQ/company-logo_200_200/company-logo_200_200/0/1706325237530/instituto_tecnologico_de_cancn_logo?e=2147483647&v=beta&t=lTklKP8Ih95EBR21RQvI1lgtFT0OKJJIfJZuHsY92aI" alt="Logo Tienda Virtual" style="height: 48px; margin-right: 32px; border-radius: 12px;">
     </div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#quienes-somos">Quiénes Somos</a></li>
-        <li><a href="#mi-cuenta">Mi Cuenta</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-        <li><a href="#preguntas-frecuentes">Preguntas Frecuentes</a></li>
-        <li><a href="#testimonios">Testimonios</a></li>
+    <nav style="flex:1;">
+      <ul style="display: flex; gap: 38px; list-style: none; margin: 0; padding: 0; justify-content: center;">
+        <li><a href="#inicio" style="color: #fff; text-decoration: none; font-weight: bold; font-size: 16px;">Inicio</a></li>
+        <li><a href="quienes-somos.html" style="color: #fff; text-decoration: none; font-size: 16px;">Quiénes Somos</a></li>
+        <!-- <li><a href="#mi-cuenta" style="color: #fff; text-decoration: none; font-size: 16px;">Mi Cuenta</a></li>  Eliminado para más espacio -->
+        <li><a href="#contacto" style="color: #fff; text-decoration: none; font-size: 16px;">Contacto</a></li>
+        <li><a href="FAQ.html" style="color: #fff; text-decoration: none; font-size: 16px;">FAQ</a></li>
+        <li class="testimonios-link" style="margin-left: 0;"><a href="#testimonios-link" style="color: #fff; text-decoration: none; font-size: 16px;">Testimonios</a></li>
       </ul>
     </nav>
-    <div class="barra-busqueda">
-      <input type="text" placeholder="Buscar productos..." id="busqueda" onkeydown="if(event.key==='Enter'){buscarProducto();return false;}">
-      <button onclick="buscarProducto()">Buscar</button>
-    </div>
-    <div class="carrito" onclick="verCarrito()">
-      <span class="carrito-icono">🛒</span>
-      <span class="contador" id="contador-carrito">0</span>
+    <div class="barra-busqueda" style="display: flex; align-items: center; gap: 18px; margin-right: 32px;">
+      <input type="text" placeholder="Buscar productos..." id="busqueda" onkeydown="if(event.key==='Enter'){buscarProducto();return false;}" style="padding: 5px 10px; border-radius: 3px; border: none; font-size: 15px;">
+      <button onclick="buscarProducto()" style="background: #666; color: #fff; border: none; padding: 5px 12px; border-radius: 3px; cursor: pointer; font-size: 15px;">Buscar</button>
+      <span id="nombre-usuario" style="font-weight:bold; cursor:pointer; text-decoration:underline; font-size:15px;"></span>
+      <button id="cerrar-sesion-btn" style="background:#e74c3c; color:#fff; border:none; border-radius:4px; padding:7px 12px; cursor:pointer; font-size:14px; display:none;">Cerrar sesión</button>
+      <div class="carrito" onclick="verCarrito()">
+        <span class="carrito-icono" style="font-size:20px;">🛒</span>
+        <span class="contador" id="contador-carrito" style="font-size:13px;">0</span>
+      </div>
     </div>
   </div>
 
@@ -329,7 +357,7 @@
         </div>
         <div class="categoria-tarjeta">
           <div class="categoria-icono">
-            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Calzado">
+            <img src="https://cdn-icons-png.flaticon.com/512/860/860895.png" alt="Calzado">
           </div>
           <div class="categoria-nombre">Calzado</div>
           <button class="categoria-boton" onclick="window.location.href='calzado.html'">Ver productos</button>
@@ -383,7 +411,7 @@
           <button style="background: #172a7c; color: #fff; border: none; border-radius: 8px; padding: 10px 0; width: 100%; font-size: 1rem; font-weight: 500; cursor: pointer;" onclick="window.location.href='https://www.cancun.tecnm.mx/oferta/licenciatura/ingenieria-civil/'">Yo quiero entrar</button>
         </div>
         <div style="background: #fff; border-radius: 16px; box-shadow: 0 2px 12px rgba(44,62,80,0.10); width: 220px; display: flex; flex-direction: column; align-items: center; padding: 24px 18px 18px 18px;">
-          <img src="https://worldcampus.saintleo.edu/img/article/estudiar-ingenieria-en-sistemas-cuales-son-los-retos-de-ser-ingenierio-en-sistemas.webp" alt="Psicología" style="width: 100%; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 18px;">
+          <img src="https://worldcampus.saintleo.edu/img/article/estudiar-ingenieria-en-sistemas-cuales-son-los-retos-de-ser-ingeniero-en-sistemas.webp" alt="Psicología" style="width: 100%; height: 120px; object-fit: cover; border-radius: 10px; margin-bottom: 18px;">
           <div style="font-weight: bold; color: #172a7c; margin-bottom: 12px;">Ingeniería en Sistemas</div>
           <button style="background: #172a7c; color: #fff; border: none; border-radius: 8px; padding: 10px 0; width: 100%; font-size: 1rem; font-weight: 500; cursor: pointer;" onclick="window.location.href='https://www.cancun.tecnm.mx/oferta/licenciatura/ingenieria-en-sistemas-computacionales/'">Yo quiero entrar</button>
         </div>
@@ -401,7 +429,7 @@
     </section>
 
     <!-- NUEVO BLOQUE: TESTIMONIOS DE ESTUDIANTES -->
-    <section style="background: #e6eeff; padding: 50px 0;">
+    <section id="testimonios-link" style="background: #e6eeff; padding: 50px 0;">
       <h2 style="text-align: center; color: #172a7c; font-size: 1.4rem; font-weight: bold; margin-bottom: 30px;">
         Testimonios de Estudiantes
       </h2>
@@ -529,24 +557,49 @@
       alert(`Agregado: ${nombre} - $${precio}`);
     }
 
-    // Buscar productos (filtra en pantalla)
+    // Buscar productos en todas las secciones relevantes
     function buscarProducto() {
-      const texto = document.getElementById('busqueda').value.toLowerCase();
-      document.querySelectorAll('.productos .producto').forEach(prod => {
-        const nombre = prod.querySelector('p').textContent.toLowerCase();
-        prod.style.display = nombre.includes(texto) ? '' : 'none';
+      const texto = document.getElementById('busqueda').value.trim().toLowerCase();
+
+      // Mostrar todo si la búsqueda está vacía
+      if (!texto) {
+        document.querySelectorAll('.producto, .banner-item, .producto-banner-item').forEach(el => {
+          el.style.display = '';
+        });
+        // Mostrar todas las categorías si existen
+        document.querySelectorAll('.categoria-tarjeta').forEach(el => {
+          el.style.display = '';
+        });
+        return;
+      }
+
+      // Oculta todos los productos/categorías por defecto
+      document.querySelectorAll('.producto, .banner-item, .producto-banner-item, .categoria-tarjeta').forEach(el => {
+        el.style.display = 'none';
       });
-      document.querySelectorAll('.productos-grid .producto').forEach(prod => {
-        const nombre = prod.querySelector('p').textContent.toLowerCase();
-        prod.style.display = nombre.includes(texto) ? '' : 'none';
+
+      // Busca en productos generales
+      document.querySelectorAll('.producto').forEach(prod => {
+        const nombre = prod.querySelector('p, h3') ? prod.querySelector('p, h3').textContent.toLowerCase() : '';
+        if (nombre.includes(texto)) prod.style.display = '';
       });
-      document.querySelectorAll('.promociones-banner .banner-item').forEach(prod => {
-        const nombre = prod.querySelector('button').getAttribute('onclick').toLowerCase();
-        prod.style.display = nombre.includes(texto) ? '' : 'none';
+
+      // Busca en promociones/banner-item
+      document.querySelectorAll('.banner-item').forEach(item => {
+        const alt = item.querySelector('img') ? item.querySelector('img').alt.toLowerCase() : '';
+        if (alt.includes(texto)) item.style.display = '';
       });
-      document.querySelectorAll('.banner-productos-grid .producto-banner-item').forEach(prod => {
-        const nombre = prod.querySelector('p').textContent.toLowerCase();
-        prod.style.display = nombre.includes(texto) ? '' : 'none';
+
+      // Busca en productos tipo banner
+      document.querySelectorAll('.producto-banner-item').forEach(prod => {
+        const nombre = prod.querySelector('p, h3') ? prod.querySelector('p, h3').textContent.toLowerCase() : '';
+        if (nombre.includes(texto)) prod.style.display = '';
+      });
+
+      // Busca en categorías (ropa, tecnología, calzado, papelería, servicios)
+      document.querySelectorAll('.categoria-tarjeta').forEach(cat => {
+        const nombre = cat.querySelector('.categoria-nombre') ? cat.querySelector('.categoria-nombre').textContent.toLowerCase() : '';
+        if (nombre.includes(texto)) cat.style.display = '';
       });
     }
 
@@ -606,6 +659,32 @@
         document.getElementById('modo-oscuro-btn').textContent = 'Modo claro';
       }
     });
+
+    // Mostrar nombre de usuario y botón de cerrar sesión
+    function mostrarNombreUsuario() {
+      const usuario = JSON.parse(localStorage.getItem('usuarioLogueado'));
+      const nombreSpan = document.getElementById('nombre-usuario');
+      const cerrarBtn = document.getElementById('cerrar-sesion-btn');
+      if (usuario && usuario.nombre) {
+        nombreSpan.textContent = "Hola, " + usuario.nombre;
+        cerrarBtn.style.display = "inline-block";
+        // Hacer clic en el nombre redirige al perfil
+        nombreSpan.onclick = function() {
+          window.location.href = "user.html";
+        };
+      } else {
+        nombreSpan.textContent = "";
+        cerrarBtn.style.display = "none";
+        nombreSpan.onclick = null;
+      }
+    }
+    mostrarNombreUsuario();
+
+    document.getElementById('cerrar-sesion-btn').onclick = function() {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('usuarioLogueado');
+      window.location.href = "login.html";
+    };
   </script>
 </body>
 </html>

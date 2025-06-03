@@ -23,10 +23,12 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 350px;
             text-align: center;
+            /* Cambia el color de la barra superior a azul fuerte */
+            border-top: 8px solid #172a7c; /* Azul fuerte */
         }
         
         h1 {
-            color: #333;
+            color: #172a7c; /* Azul fuerte para el título */
             margin-bottom: 20px;
         }
         
@@ -52,7 +54,7 @@
         }
         
         button {
-            background-color: #4CAF50;
+            background-color: #172a7c; /* Azul fuerte */
             color: white;
             border: none;
             padding: 12px 20px;
@@ -64,7 +66,7 @@
         }
         
         button:hover {
-            background-color: #45a049;
+            background-color: #0e1a4d; /* Azul más oscuro al pasar el mouse */
         }
         
         .register-link {
@@ -98,7 +100,7 @@
         <!-- Formulario de Inicio de Sesión -->
         <div id="login-form">
             <h1>Iniciar Sesión</h1>
-            <form action="index.html" method="get" onsubmit="return validarLogin()">
+            <form id="form-login" action="index.html" method="get">
                 <div class="form-group">
                     <label for="login-username">Usuario o Email:</label>
                     <input type="text" id="login-username" name="username" required>
@@ -108,7 +110,7 @@
                     <input type="password" id="login-password" name="password" required>
                 </div>
                 <div id="login-error" class="error-message">Usuario o contraseña incorrectos</div>
-                <button onclick="login()">Iniciar sesión</button>
+                <button type="submit">Iniciar sesión</button>
             </form>
             <div class="register-link">
                 ¿No tienes una cuenta? <a href="#" id="show-register">Regístrate aquí</a>
@@ -193,6 +195,8 @@
                     usuario: usuarioEncontrado.usuario,
                     email: usuarioEncontrado.email
                 }));
+                localStorage.setItem("isLoggedIn", "true");
+                errorElement.style.display = 'none';
                 return true;
             } else {
                 errorElement.style.display = 'block';
@@ -243,18 +247,23 @@
             document.getElementById('register-form').classList.add('hidden');
             document.getElementById('login-form').classList.remove('hidden');
             
-            // Limpiar formulario
-            document.getElementById('register-form').reset();
+            // Limpiar formulario de registro
+            document.getElementById('register-name').value = '';
+            document.getElementById('register-email').value = '';
+            document.getElementById('register-username').value = '';
+            document.getElementById('register-password').value = '';
+            document.getElementById('register-confirm-password').value = '';
             errorElement.style.display = 'none';
             
             return false;
         }
 
-        // Simular inicio de sesión exitoso
-        document.getElementById("login-form").addEventListener("submit", function (e) {
-            e.preventDefault(); // Evitar recarga de la página
-            localStorage.setItem("isLoggedIn", "true"); // Guardar estado de sesión
-            window.location.href = "index.html"; // Redirigir al inicio
+        // Manejar el submit del login correctamente
+        document.getElementById("form-login").addEventListener("submit", function (e) {
+            e.preventDefault();
+            if (validarLogin()) {
+                window.location.href = "index.html";
+            }
         });
     </script>
 </body>
